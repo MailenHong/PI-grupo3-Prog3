@@ -27,6 +27,34 @@ class Card extends Component {
         const ocultarAcciones = this.props.ocultarAcciones === true;
         return (
             <div>
+                <div>
+                    <p>{this.props.data.title || this.props.data.name}</p>
+                    <img src={`https://image.tmdb.org/t/p/w342${this.props.data.poster_path}`}
+                    alt={this.props.data.title || this.props.data.name} />
+
+                    <button onClick = {() => this.switchDescripcion()}>
+                        {this.state.mensajeBoton}
+                    </button>
+                    {this.state.mostrarDescripcion ? <p> {this.props.data.overview}</p> : ''}
+                    <Link to = {`/detalle/${this.props.data.id}`}> Ir al detalle </Link>
+                </div>
+            
+
+            
+            </div>
+        )
+    }
+}
+
+
+
+
+
+export default Card;
+
+
+/*  <div>
+            <div>
                 <p> {this.props.data.title}</p>
                 <img
                     src={`https://image.tmdb.org/t/p/w342${this.props.data.poster_path}`}
@@ -38,12 +66,17 @@ class Card extends Component {
             
            
             </div>
-        )
-    }
-}
-
-
-
-
-
-export default Card;
+            <div>
+                <p> {this.props.data.title}</p>
+                <img
+                    src={`https://image.tmdb.org/t/p/w342${this.props.data.poster_path}`}
+                    alt={this.props.data.title}
+                />
+                <button onClick = {()=>this.switchDescripcion()}> {this.state.mensajeBoton} </button>
+                {this.state.mostrarDescripcion ? <p> {this.props.data.overview}</p> : ''}
+                <Link to= {`/detalle/${this.props.data.id}`}> Ir al detalle </Link>
+            
+           
+            </div>
+            
+            </div>*/
