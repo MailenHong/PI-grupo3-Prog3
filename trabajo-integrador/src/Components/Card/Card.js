@@ -24,6 +24,7 @@ class Card extends Component {
 
     }
     render() {
+        const ocultarAcciones = this.props.ocultarAcciones === true;
         return (
             <div>
                 <p> {this.props.data.title}</p>
@@ -34,6 +35,7 @@ class Card extends Component {
                 <button onClick = {()=>this.switchDescripcion()}> {this.state.mensajeBoton} </button>
                 {this.state.mostrarDescripcion ? <p> {this.props.data.overview}</p> : ''}
                 <Link to= {`/detalle/${this.props.data.id}`}> Ir al detalle </Link>
+            
            
             </div>
         )
