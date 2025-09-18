@@ -46,13 +46,13 @@ class Home extends Component{
                 <h2> Peliculas más populares </h2>
                 {
                 ( this.state.loadingPopulares ==true) ? <h3> Cargando... </h3> :
-                this.state.peliculasPopulares.slice(0,4).map(pelicula => <Card key = {pelicula.id} data = {pelicula}/>)}
+                this.state.peliculasPopulares.slice(0,4).map(pelicula => <Card key = {pelicula.id} data = {pelicula} categoria = "movie"/>)}
                 <Link to= '/peliculas/populares'> Ver todas</Link>
                 
                 <h2> Top rated Series! </h2>
                 {
                 ( this.state.loadingTop ==true) ? <h3> Cargando... </h3> :
-                this.state.seriesTop.slice(0,4).map(serie => <Card key = {serie.id} data = {serie}/>)}
+                this.state.seriesTop.slice(0,4).map(serie => <Card key = {serie.id} data = {serie} categoria = "tv"/>)}
                  <Link to= '/series/toprated'> Ver todas</Link>
                  
 

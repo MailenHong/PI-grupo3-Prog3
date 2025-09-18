@@ -35,12 +35,11 @@ class Card extends Component {
                     <button onClick = {() => this.switchDescripcion()}>
                         {this.state.mensajeBoton}
                     </button>
-                    {this.state.mostrarDescripcion ? <p> {this.props.data.overview}</p> : ''}
-                    <Link to = {`/detalle/${this.props.data.id}`}> Ir al detalle </Link>
+                    {this.state.mostrarDescripcion ? <p> {this.props.data.overview} </p> : ''}
+                    <Link to = {`/detalle/${this.props.data.id}?tipo=${this.props.categoria}`}> Ir al detalle </Link>
                 </div>
             
-
-            
+ 
             </div>
         )
     }
@@ -53,30 +52,3 @@ class Card extends Component {
 export default Card;
 
 
-/*  <div>
-            <div>
-                <p> {this.props.data.title}</p>
-                <img
-                    src={`https://image.tmdb.org/t/p/w342${this.props.data.poster_path}`}
-                    alt={this.props.data.title}
-                />
-                <button onClick = {()=>this.switchDescripcion()}> {this.state.mensajeBoton} </button>
-                {this.state.mostrarDescripcion ? <p> {this.props.data.overview}</p> : ''}
-                <Link to= {`/detalle/${this.props.data.id}`}> Ir al detalle </Link>
-            
-           
-            </div>
-            <div>
-                <p> {this.props.data.title}</p>
-                <img
-                    src={`https://image.tmdb.org/t/p/w342${this.props.data.poster_path}`}
-                    alt={this.props.data.title}
-                />
-                <button onClick = {()=>this.switchDescripcion()}> {this.state.mensajeBoton} </button>
-                {this.state.mostrarDescripcion ? <p> {this.props.data.overview}</p> : ''}
-                <Link to= {`/detalle/${this.props.data.id}`}> Ir al detalle </Link>
-            
-           
-            </div>
-            
-            </div>*/
