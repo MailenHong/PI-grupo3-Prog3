@@ -15,7 +15,9 @@ class Home extends Component{
             seriesTop : [],
             loadingPopulares: true,
             loadingTop: true,
-            page: 2
+            page: 2,
+            dataFiltrada: [],
+            valorInput:''
             
 
         }
@@ -47,16 +49,32 @@ class Home extends Component{
             this.setState({peliculasPopulares:this.state.peliculasPopulares.concat (data.results), page: this.state.page + 1});
         })
     }
-    //funcion cargar mas (mai)
+
+    filtro(e){
+        console.log(e)
+        let valorEscrito = e.target.value.toLowerCase();
+
+        let dataFiltrada = this.state.peliculasPopulares.filter(unaPelicula => {    return unaPelicula.title.toLowerCase().includes(valorEscrito.toLowerCase())}
+    )
+          console.log(dataFiltrada);
+
+        this.setState({dataFiltrada: dataFiltrada, valorInput: e.target.value})
+    }
+
+
     render(){
         return(
             <React.Fragment>
                  <Header />
                 <h2> Peliculas más populares </h2>
+                <form>
+                    <input placeholder='filtrar' onChange={(e) => this.filtro(e)}/>
+                </form>
                 {
                 ( this.state.loadingPopulares ==true) ? <h3> Cargando... </h3> :
-                this.state.peliculasPopulares.slice(0,4).map(pelicula => <Card key = {pelicula.id} data = {pelicula} categoria = "movie"/>)}
+                this.state.loading == '' ? this.state.peliculasPopulares.slice(0,4).map(pelicula => <Card key = {pelicula.id} data = {pelicula} categoria = "movie"/>): this.state.dataFiltrada.map(unaPelicula=> <Card data={unaPelicula}/>)}
                 <Link to= '/peliculas/populares'> Ver todas</Link>
+                <button onClick={()=> this.cargarMas()}>Cargar mas</button>
                 
                 <h2> Top rated Series! </h2>
                 {
