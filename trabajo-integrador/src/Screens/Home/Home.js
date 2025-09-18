@@ -15,6 +15,7 @@ class Home extends Component{
             seriesTop : [],
             loadingPopulares: true,
             loadingTop: true,
+            page: 2
             
 
         }
@@ -36,8 +37,16 @@ class Home extends Component{
         })
 
     }
-    
 
+    cargarMas(){
+        //fetch para las pelis mas populares
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=f9fc64e9649ab6801db9ea49129b2146&language=en-US&page=${this.state.page}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            this.setState({peliculasPopulares:this.state.peliculasPopulares.concat (data.results), page: this.state.page + 1});
+        })
+    }
     //funcion cargar mas (mai)
     render(){
         return(
@@ -54,7 +63,7 @@ class Home extends Component{
                 ( this.state.loadingTop ==true) ? <h3> Cargando... </h3> :
                 this.state.seriesTop.slice(0,4).map(serie => <Card key = {serie.id} data = {serie} categoria = "tv"/>)}
                  <Link to= '/series/toprated'> Ver todas</Link>
-                 
+                 <button onClick={()=> this.cargarMas()}>Cargar mas</button>
 
 
                  <Footer />
