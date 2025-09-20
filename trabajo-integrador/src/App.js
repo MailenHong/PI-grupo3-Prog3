@@ -9,6 +9,9 @@ import PaginaListado from './Screens/ListadoPeliculas/PaginaListado'
 import './css/styles.css';
 import Series from './Screens/Series/Series';
 import Peliculas from './Screens/Peliculas/Peliculas';
+import Buscador from './Screens/Buscador/Buscador';
+
+
 function App() {
   return (
     <React.Fragment>
@@ -20,6 +23,8 @@ function App() {
         <Route path = '' component= {NotFound}/>
         <Route path="/peliculas/populares" element={<Peliculas />} />
         <Route path="/series/toprated" element={<Series />} />
+        <Route path= '/search' component = {Buscador} exact = {true} />
+
       </Switch>
     </React.Fragment>
   );

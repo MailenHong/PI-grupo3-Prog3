@@ -1,4 +1,4 @@
-/*import React,{Component} from "react";
+import React,{Component} from "react";
 import Card from '../../Components/Card/Card';
 import { Link } from 'react-router-dom';
 import Header from '../../Components/Header/Header';
@@ -45,7 +45,7 @@ class Peliculas extends Component {
     console.log(e)
     let valorEscrito = e.target.value.toLowerCase();
     let dataFiltrada = this.state.peliculasPopulares.filter(unaPelicula => 
-      (unaPelicula.title || '').toLowerCase().includes(valorEscrito)
+    unaPelicula.title ? unaPelicula.title.toLowerCase().includes(valorEscrito) : false
     );
     this.setState({
       dataFiltrada, valorInput: e.target.value

@@ -14,18 +14,16 @@ class Series extends Component {
       dataFiltrada: [],
       valorInput:'',
     };
-
-    // bind para handlers
-    this.cargarMas = this.cargarMas.bind(this);
-    this.filtro = this.filtro.bind(this);
   }
   
   componentDidMount(){
     fetch('https://api.themoviedb.org/3/tv/top_rated?api_key=f9fc64e9649ab6801db9ea49129b2146&language=en-US&page=1')
       .then(res => res.json())
       .then(seriesData => {
-        this.setState({ seriesPopulares: seriesData.results || [], loadingTop: false });
-      })
+this.setState({
+  seriesPopulares: (seriesData && seriesData.results) ? seriesData.results : [],
+  loadingTop: false});      
+})
       .catch(() => this.setState({ loadingTop: false }));
   }
 
@@ -34,7 +32,7 @@ class Series extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          seriesPopulares: this.state.seriesPopulares.concat(data.results || []), 
+          seriesPopulares: this.state.seriesPopulares.concat(data.results) ? data.results :[], 
           page: this.state.page + 1
         });
       });
@@ -43,7 +41,7 @@ class Series extends Component {
   filtro(e){
     const valorEscrito = e.target.value.toLowerCase();
     const dataFiltrada = this.state.seriesPopulares.filter(unaSerie => 
-      (unaSerie.name || '').toLowerCase().includes(valorEscrito)
+    unaSerie.name ? unaSerie.name.toLowerCase().includes(valorEscrito) : false
     );
     this.setState({ dataFiltrada, valorInput: e.target.value });
   }
