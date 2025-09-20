@@ -25,6 +25,7 @@ class Card extends Component {
     }
     render() {
         const ocultarAcciones = this.props.ocultarAcciones === true;
+        const tipo = this.props.categoria
         return (
             <div>
                 <div>
@@ -36,7 +37,7 @@ class Card extends Component {
                         {this.state.mensajeBoton}
                     </button>
                     {this.state.mostrarDescripcion ? <p> {this.props.data.overview} </p> : ''}
-                    <Link to = {`/detalle/${this.props.data.id}?tipo=${this.props.categoria}`}> Ir al detalle </Link>
+                    <Link to = {`/detalle/${tipo}/${this.props.data.id}`}> Ir al detalle </Link>
                 </div>
             
  
