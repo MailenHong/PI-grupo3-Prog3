@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Detalle.css'
 
+
 //componente con estado
 
 class Detalle extends Component {

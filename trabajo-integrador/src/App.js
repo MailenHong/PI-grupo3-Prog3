@@ -15,6 +15,7 @@ import Buscador from './Screens/Buscador/Buscador';
 function App() {
   return (
     <React.Fragment>
+      
       <Switch>
         <Route path= '/' component = {Home} exact = {true} />
         <Route path= '/detalle/:tipo/:id' component = {Detalle}/>
