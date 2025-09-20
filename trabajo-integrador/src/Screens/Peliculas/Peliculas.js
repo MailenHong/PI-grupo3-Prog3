@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
 
-class Pelicula extends Component {
+class Peliculas extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -19,16 +19,14 @@ class Pelicula extends Component {
   }
   
   componentDidMount(){
+    // fetch para las pelis más populares
     fetch('https://api.themoviedb.org/3/movie/popular?api_key=f9fc64e9649ab6801db9ea49129b2146&language=en-US&page=1')
       .then(res => res.json())
-      .then((data) => {
-        this.setState({
-          peliculasPopulares: Array.isArray(data.results) ? data.results : [],
-          loadingPopulares: false
-        });
-      })
-      .catch(()=> this.setState({loadingPopulares: false}));
-  } 
+      .then(data => {
+        console.log(data);
+        this.setState({ peliculasPopulares: data.results, loadingPopulares: false });
+      });
+      }
 
   cargarMas(){
     //fetch para las pelis mas populares
@@ -47,7 +45,7 @@ class Pelicula extends Component {
     console.log(e)
     let valorEscrito = e.target.value.toLowerCase();
     let dataFiltrada = this.state.peliculasPopulares.filter(unaPelicula => 
-      (unaPelicula.title || '').toLowerCase().includes(valorEscrito)
+    unaPelicula.title ? unaPelicula.title.toLowerCase().includes(valorEscrito) : false
     );
     this.setState({
       dataFiltrada, valorInput: e.target.value
@@ -81,8 +79,8 @@ class Pelicula extends Component {
             {lista.length === 0 ? (
               <p> No hay resultados{valorInput ? ` para “${valorInput}”` : ''}.</p>
             ) : (
-              lista.slice(0, 12).map(pelicula => (
-                <Card key={pelicula.id} data={pelicula} categoria="movie" />
+              lista.slice(0, 12).map(Peliculas => (
+                <Card key={Peliculas.id} data={Peliculas} categoria="movie" />
               ))
             )}
           </section>
@@ -104,4 +102,4 @@ class Pelicula extends Component {
   }
 }
 
-export default Pelicula;
+export default Peliculas;

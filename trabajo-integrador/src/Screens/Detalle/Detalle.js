@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Detalle.css'
 
-
 //componente con estado
 
 class Detalle extends Component {
@@ -16,9 +15,9 @@ class Detalle extends Component {
     componentDidMount() {
         console.log(this.props)
         const { id } = this.props.match.params
-        const query = new URLSearchParams(this.props.location.search)
-        const tipo = query.get('tipo') || "movie" //default movie si falta, controlar bien 
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=f9fc64e9649ab6801db9ea49129b2146&language=en-US&page=1`)
+        let tipo = this.props.match.params.tipo
+       
+        fetch(`https://api.themoviedb.org/3/${tipo}/${id}?api_key=f9fc64e9649ab6801db9ea49129b2146&language=en-US&page=1`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -40,14 +39,17 @@ class Detalle extends Component {
                         alt={this.state.data.title || this.state.data.name}
                     />
                     <section className="col-md-6 info">
-                        <h3>Descripción</h3>
+                        <h3>Sinopsis
+                        </h3>
                         <p className="description">{this.state.data.overview}</p>
-                        <p className="mt-0 mb-0" ><strong>Fecha de estreno:</strong> {this.state.data.release_date}</p>
+                        {this.state.data.release_date ? (
+                            <p className="mt-0 mb-0 length"><strong>Fecha de estreno:</strong> {this.state.data.release_date}</p>
+                        ) : <p className="mt-0 mb-0 length"><strong>Fecha de estreno:</strong> {this.state.data.first_air_date}</p>}
                         {this.state.data.runtime ? (
                             <p className="mt-0 mb-0 length"><strong>Duración:</strong> {this.state.data.runtime} min</p>
                         ) : null}
-                        <p className="mt-0" ><strong>Puntuación:</strong> {this.state.data.vote_average}</p>
-                        <p className="mt-0 mb-0"><strong>Género: </strong> {this.state.data.genres.map(genre => genre.name).join(', ')}</p>
+                        <p className="mt-0" ><strong>Calificación:</strong> {this.state.data.vote_average}</p>
+                        <p className="mt-0 mb-0"><strong>Género: </strong> {this.state.data.genres.map((genre) => genre.name).join(', ')}</p>
                     </section>
                 </section>
 
@@ -65,6 +67,7 @@ class Detalle extends Component {
 
 }
 export default Detalle;
+
 
 
 
