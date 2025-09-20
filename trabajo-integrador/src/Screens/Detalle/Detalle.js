@@ -9,14 +9,17 @@ class Detalle extends Component {
         this.state = { //estado inicial del estado, priemra vez que el componente se carga
             data: [],
             loading: true,
+            mensajeFav: '', 
+            esFavorito: false
 
         }
     }
+
     componentDidMount() {
         console.log(this.props)
-        const { id } = this.props.match.params
+        const  id  = this.props.match.params.id
         let tipo = this.props.match.params.tipo
-       
+
         fetch(`https://api.themoviedb.org/3/${tipo}/${id}?api_key=f9fc64e9649ab6801db9ea49129b2146&language=en-US&page=1`)
             .then(res => res.json())
             .then(data => {
@@ -24,7 +27,57 @@ class Detalle extends Component {
                 this.setState({ data: data, loading: false })
             })
 
+        let elementosFavoritos = []
+
+        if (this.props.match.params.tipo == 'movie') {
+            elementosFavoritos = JSON.parse(localStorage.getItem('peliculasFavs'))
+        } else {
+            elementosFavoritos = JSON.parse(localStorage.getItem('seriesFavs'))
+        }
+        console.log(elementosFavoritos)
+        console.log(this.props.match.params.id)
+        if(elementosFavoritos.includes(this.props.match.params.id)){
+            this.setState({esFavorito: true, mensajeFav: 'Quitar favorito'})
+        } else{
+            this.setState({esFavorito:false, mensajeFav: 'Añadir como favorito'})
+        }
+        console.log(elementosFavoritos.includes(this.props.match.params.id))
     }
+
+    switchFavorito() {
+        let elementosFavoritos = []
+
+        if (this.props.match.params.tipo == 'movie') {
+            elementosFavoritos = JSON.parse(localStorage.getItem('peliculasFavs'))
+        } else {
+            elementosFavoritos = JSON.parse(localStorage.getItem('seriesFavs'))
+        }
+
+        let elementosNuevos = []
+
+        if (elementosFavoritos != null) {
+            elementosNuevos = elementosFavoritos
+        }
+
+        if(elementosNuevos.includes(this.props.match.params.id)){
+            elementosNuevos = elementosFavoritos.filter(id => {
+                return id != this.props.match.params.id
+            })
+            this.setState({esFavorito: false, mensajeFav: 'Añadir como favorito'})
+        } else{
+            elementosNuevos.push(this.props.match.params.id)
+            this.setState({esFavorito:true, mensajeFav: 'Quitar favorito'})
+        }
+         if (this.props.match.params.tipo == 'movie') {
+            localStorage.setItem('peliculasFavs', JSON.stringify(elementosNuevos))
+        } else {
+            localStorage.setItem('seriesFavs', JSON.stringify(elementosNuevos))
+
+        }
+        console.log(localStorage)
+    }
+
+
     render() {
         if (this.state.loading == true) {
             return <h3> Cargando...</h3>
@@ -50,6 +103,9 @@ class Detalle extends Component {
                         ) : null}
                         <p className="mt-0" ><strong>Calificación:</strong> {this.state.data.vote_average}</p>
                         <p className="mt-0 mb-0"><strong>Género: </strong> {this.state.data.genres.map((genre) => genre.name).join(', ')}</p>
+                        <button onClick={() => this.switchFavorito()}>
+                            {this.state.mensajeFav}
+                        </button>
                     </section>
                 </section>
 

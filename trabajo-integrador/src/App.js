@@ -6,25 +6,19 @@ import Home from './Screens/Home/Home';
 import Detalle from './Screens/Detalle/Detalle';
 import NotFound from './Screens/NotFound/NotFound';
 import PaginaListado from './Screens/ListadoPeliculas/PaginaListado'
+import Favoritas from './Screens/Favoritos/Favoritos'
 import './css/styles.css';
-import Series from './Screens/Series/Series';
-import Peliculas from './Screens/Peliculas/Peliculas';
-import Buscador from './Screens/Buscador/Buscador';
-
 
 function App() {
   return (
     <React.Fragment>
       <Switch>
         <Route path= '/' component = {Home} exact = {true} />
-        <Route path= '/detalle/:tipo/:id' component = {Detalle}/>
-        <Route path = '/peliculas/:tipo' component = {PaginaListado}/>
-        <Route path = '/series/:tipo' component = {PaginaListado}/>
+        <Route path= '/detalle/:tipo/:id' component = {Detalle} exact = {true}/>
+        <Route path = '/peliculas/:tipo' component = {PaginaListado} exact = {true}/>
+        <Route path = '/series/:tipo' component = {PaginaListado} exact = {true}/>
+        <Route path = '/favoritas' component= {Favoritas} exact = {true}/>
         <Route path = '' component= {NotFound}/>
-        <Route path="/peliculas/populares" element={<Peliculas />} />
-        <Route path="/series/toprated" element={<Series />} />
-        <Route path= '/search' component = {Buscador} exact = {true} />
-
       </Switch>
     </React.Fragment>
   );
