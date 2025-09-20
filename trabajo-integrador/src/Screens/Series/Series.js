@@ -61,19 +61,19 @@ this.setState({
             type="text"
             placeholder="Filtrar por nombre..."
             value={valorInput}
-            onChange={this.filtro}
+            onChange={(e)=> this.filtro(e)}
             className="campo-busqueda"
           />
         </form>
 
-        {loadingTop ? (
+        {loadingTop === true ? (
           <h3>Cargando...</h3>
         ) : (
           <section className="lista-peliculas">
             {lista.length === 0 ? (
               <p>No hay resultados{valorInput ? ` para “${valorInput}”` : ''}.</p>
             ) : (
-              lista.slice(0, 12).map(serie => (
+              lista.map(serie => (
                 <Card key={serie.id} data={serie} categoria="tv" />
               ))
             )}
@@ -81,14 +81,10 @@ this.setState({
         )}
 
         <div className="contenedor-boton">
-          <button type="button" onClick={this.cargarMas} className="boton-cargar">
+          <button type="button" onClick={()=> this.cargarMas()} className="boton-cargar">
             Cargar más
           </button>
         </div>
-
-        <Link to="/series/populares">
-          Ver todas
-        </Link>
 
         <Footer />
       </React.Fragment>

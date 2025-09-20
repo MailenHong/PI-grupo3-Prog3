@@ -63,7 +63,9 @@ class Card extends Component {
         } else {
             elementosFavoritos = JSON.parse(localStorage.getItem('seriesFavs'))
         }
-
+        if(elementosFavoritos == null){
+            elementosFavoritos = []
+        }
         if(elementosFavoritos.includes(this.props.data.id)){
             this.setState({esFavorito: false, mensajeFav: 'Quitar favorito'})
         } else{
