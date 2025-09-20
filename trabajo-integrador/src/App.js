@@ -7,7 +7,8 @@ import Detalle from './Screens/Detalle/Detalle';
 import NotFound from './Screens/NotFound/NotFound';
 import PaginaListado from './Screens/ListadoPeliculas/PaginaListado'
 import './css/styles.css';
-
+import Series from './Screens/Series/Series';
+import Peliculas from './Screens/Peliculas/Peliculas';
 function App() {
   return (
     <React.Fragment>
@@ -17,6 +18,8 @@ function App() {
         <Route path = '/peliculas/:tipo' component = {PaginaListado}/>
         <Route path = '/series/:tipo' component = {PaginaListado}/>
         <Route path = '' component= {NotFound}/>
+        <Route path="/peliculas/populares" element={<Peliculas />} />
+        <Route path="/series/toprated" element={<Series />} />
       </Switch>
     </React.Fragment>
   );
