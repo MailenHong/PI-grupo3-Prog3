@@ -1,4 +1,4 @@
-import React,{Component} from "react";
+/*import React,{Component} from "react";
 import Card from '../../Components/Card/Card';
 import { Link } from 'react-router-dom';
 import Header from '../../Components/Header/Header';
@@ -105,3 +105,4 @@ class Pelicula extends Component {
 }
 
 export default Pelicula;
+*/

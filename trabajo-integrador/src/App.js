@@ -13,7 +13,7 @@ function App() {
     <React.Fragment>
       <Switch>
         <Route path= '/' component = {Home} exact = {true} />
-        <Route path= '/detalle/:id' component = {Detalle}/>
+        <Route path= '/detalle/:tipo/:id' component = {Detalle}/>
         <Route path = '/peliculas/:tipo' component = {PaginaListado}/>
         <Route path = '/series/:tipo' component = {PaginaListado}/>
         <Route path = '' component= {NotFound}/>
