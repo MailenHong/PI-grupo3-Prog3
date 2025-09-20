@@ -1,0 +1,70 @@
+.top-data {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 16px;
+}
+
+
+.data-detail {
+  flex: 0 1 calc(25% - 16px);   /* 4 por fila, contemplando el gap */
+  max-width: calc(25% - 16px);
+  box-sizing: border-box;
+  padding: 15px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+/* Imagen dentro de la card */
+.data-detail img {
+  width: 100%;
+  aspect-ratio: 2 / 3;      /* mantiene proporción poster */
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+
+/* Texto */
+.data-detail p {
+  margin: 5px 0;
+  font-size: 15px;
+  color: #333;
+}
+
+
+/* Link "Ir al detalle" u otros */
+.data-detail a {
+  color: #1f6feb;
+  font-weight: 600;
+  margin-top: auto;         /* empuja el link al fondo */
+  text-decoration: none;
+}
+.data-detail a:hover {
+  text-decoration: underline;
+}
+
+
+/* Botón de descripción */
+.data-detail button {
+  margin: 10px 0;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #eee;
+  cursor: pointer;
+}
+.data-detail button:hover {
+  background-color: #ddd;
+}
+
+
+/* Hover de la card */
+.data-detail:hover {
+  box-shadow: 0 0 10px 5px rgba(58, 59, 69, 0.25);
+}

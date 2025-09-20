@@ -3,12 +3,13 @@ import Card from '../../Components/Card/Card';
 import { Link } from 'react-router-dom';
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
+import './Home.css'
 
 //componente con estado
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       peliculasPopulares: [],
       seriesTop: [],
       loadingPopulares: true,
@@ -38,14 +39,18 @@ class Home extends Component {
     return (
       <React.Fragment>
         <Header />
-        
+
         <h2> Peliculas más populares </h2>
         {this.state.loadingPopulares === true ? (
           <h3> Cargando... </h3>
         ) : (
-          this.state.peliculasPopulares.slice(0, 4).map(pelicula => (
-            <Card key={pelicula.id} data={pelicula} categoria="movie" />
-          ))
+          <div className="top-data">
+            {this.state.peliculasPopulares.slice(0, 4).map(pelicula => (
+              <div className="data-detail">
+                <Card key={pelicula.id} data={pelicula} categoria="movie" />
+              </div>
+            ))}
+          </div>
         )}
         <Link to="/peliculas/populares"> Ver todas</Link>
 
@@ -53,9 +58,13 @@ class Home extends Component {
         {this.state.loadingTop === true ? (
           <h3> Cargando... </h3>
         ) : (
-          this.state.seriesTop.slice(0, 4).map(serie => (
-            <Card key={serie.id} data={serie} categoria="tv" />
-          ))
+          <div className="top-data">
+            {this.state.seriesTop.slice(0, 4).map(serie => (
+              <div className="data-detail">
+                <Card key={serie.id} data={serie} categoria="tv" />
+              </div>
+            ))}
+          </div>
         )}
         <Link to="/series/toprated"> Ver todas</Link>
 

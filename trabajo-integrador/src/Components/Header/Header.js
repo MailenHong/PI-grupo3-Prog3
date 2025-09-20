@@ -22,7 +22,7 @@ class Header extends Component{
 render(){
     return (
         <div className="container">
-            <h1>Nombre de la aplicacion</h1>
+            <h1>UdeSA Movies</h1>
             <nav>
                 <ul className="nav nav-tabs my-4">
                     <li className="nav-item"><Link to='/' className='nav-link' >Home</Link></li>

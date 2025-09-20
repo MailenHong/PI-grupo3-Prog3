@@ -27,7 +27,7 @@ class Card extends Component {
         const ocultarAcciones = this.props.ocultarAcciones === true;
         return (
             <div>
-                <div>
+                <div> 
                     <p>{this.props.data.title || this.props.data.name}</p>
                     <img src={`https://image.tmdb.org/t/p/w342${this.props.data.poster_path}`}
                     alt={this.props.data.title || this.props.data.name} />
@@ -37,6 +37,9 @@ class Card extends Component {
                     </button>
                     {this.state.mostrarDescripcion ? <p> {this.props.data.overview} </p> : ''}
                     <Link to = {`/detalle/${this.props.data.id}?tipo=${this.props.categoria}`}> Ir al detalle </Link>
+                    <button onClick = {() => this.switchDescripcion()}>
+                        {this.state.esFavorito ? 'Quitar de Favoritos' : 'Mostrar favoritos'}
+                    </button>
                 </div>
             
  

@@ -16,8 +16,7 @@ function App() {
         <Route path= '/detalle/:id' component = {Detalle}/>
         <Route path = '/peliculas/:tipo' component = {PaginaListado}/>
         <Route path = '/series/:tipo' component = {PaginaListado}/>
-        <Route path = '' component= {NotFound}/>
-      </Switch>
+        <Route path = '/notFound' component= {NotFound}/>      </Switch>
     </React.Fragment>
   );
 }
