@@ -9,6 +9,7 @@ import Favoritas from './Screens/Favoritos/Favoritos'
 import './css/styles.css';
 import Series from './Screens/Series/Series';
 import Peliculas from './Screens/Peliculas/Peliculas';
+import Buscador from './Screens/Buscador/Buscador';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
         <Route path = '/series' component = {Series} exact = {true}/>
         <Route path = '/favoritas' component= {Favoritas} exact = {true}/>
         <Route path = '' component= {NotFound}/>
+        <Route path = '/buscar/:tipo/:busqueda' component= {Buscador} exact = {true}/>
+
       </Switch>
     </React.Fragment>
   );

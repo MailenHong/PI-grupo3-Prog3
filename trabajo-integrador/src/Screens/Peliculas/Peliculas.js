@@ -9,9 +9,7 @@ class Peliculas extends Component {
     super(props);
     this.state = {
       peliculasPopulares : [],
-      seriesTop : [],
       loadingPopulares: true,
-      loadingTop: true,
       page: 2,
       dataFiltrada: [],
       valorInput:'',
@@ -61,11 +59,10 @@ class Peliculas extends Component {
         <Header />
 
         <h2> Peliculas más populares </h2>
-        <h3> Cargando... </h3>
         <form onSubmit={(e)=> e.preventDefault()} className="formulario-busqueda">
           <input
             type="text"
-            placeholder="Filtrar por título..."
+            placeholder="Filtrar por título"
             value={valorInput}
             onChange={(e)=> this.filtro(e)}
             className="campo-busqueda"
