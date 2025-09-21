@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Card from '../../Components/Card/Card';
 
-class Resultados extends Component {
+class Buscador extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,15 +12,13 @@ class Resultados extends Component {
 
   componentDidMount() {
     const params = this.props.match.params;
-    const tipo = params.tipo;
-    let busqueda = '';
-    if (params.busqueda) {
-      busqueda = params.busqueda
+    let tipo = params.tipo;
+    let busqueda = params.busqueda;
+    if (!busqueda) {
+      busqueda =''
     }
 
-    const url = `https://api.themoviedb.org/3/search/${tipo}?api_key=TU_API_KEY&query=${busqueda}`;
-
-    fetch(url)
+    fetch (`https://api.themoviedb.org/3/search/${tipo}?api_key=TU_API_KEY&query=${busqueda}`)
       .then(function(res) { return res.json(); })
       .then((data) => {
         let lista = [];
@@ -43,7 +41,6 @@ class Resultados extends Component {
       return (
         <main className="container">
           <h1>UdeSA Movies</h1>
-          <h1>Cargando...</h1>
         </main>
       );
     }
@@ -60,7 +57,7 @@ class Resultados extends Component {
     return (
       <main className="container">
         <h1>UdeSA Movies</h1>
-        {this.state.resultados.map(function(item) {
+        {()=> this.state.resultados.map(function(item) {
           return <Card key={item.id} data={item} categoria={tipo} />;
         })}
       </main>
@@ -68,4 +65,4 @@ class Resultados extends Component {
   }
 }
 
-export default Resultados;
+export default Buscador;

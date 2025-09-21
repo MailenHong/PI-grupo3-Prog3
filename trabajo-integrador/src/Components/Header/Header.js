@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom'
+import Formulario from '../Formulario/Formulario';
 
 class Header extends Component{
     constructor(props){
@@ -16,7 +17,7 @@ class Header extends Component{
     handleSubmit(e){
         e.preventDefault();
         console.log('Buscaste:', this.state.busqueda);
-        //this.props.history.push(`/resultados/${this.state.busqueda}`)
+        this.props.history.push(`/resultados/${this.state.busqueda}`)
     }
 
 render(){
@@ -31,19 +32,7 @@ render(){
                     <li className="nav-item"><Link to='/favoritas' className='nav-link' >Favoritas</Link></li>
                 </ul>
 
-                <form className='search-form' onSubmit={(e) => this.handleSubmit(e)}>
-                    <input
-                        type="text"
-                        name="busqueda"
-                        placeholder="Buscar..."
-                        value={this.state.busqueda}
-                        onChange={(e) => this.filtro(e)}
-                    />
-                    <button type='submit'>
-                        Buscar
-                    </button>
-
-                </form>
+                <Formulario/>
             </nav>
         </div>
     )
