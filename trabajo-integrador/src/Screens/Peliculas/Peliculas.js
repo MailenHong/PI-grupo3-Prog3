@@ -67,19 +67,19 @@ class Peliculas extends Component {
             type="text"
             placeholder="Filtrar por título..."
             value={valorInput}
-            onChange={this.filtro}
+            onChange={(e)=> this.filtro(e)}
             className="campo-busqueda"
           />
         </form>
 
-        {this.state.loadingPopulares === true ? (
+        {loadingPopulares === true ? (
           <h3>Cargando...</h3>
         ) : (
           <section className="lista-peliculas">
             {lista.length === 0 ? (
               <p> No hay resultados{valorInput ? ` para “${valorInput}”` : ''}.</p>
             ) : (
-              lista.slice(0, 12).map(Peliculas => (
+              lista.map(Peliculas => (
                 <Card key={Peliculas.id} data={Peliculas} categoria="movie" />
               ))
             )}
@@ -87,14 +87,11 @@ class Peliculas extends Component {
         )}
 
         <div className="contenedor-boton">
-          <button type="button" onClick={this.cargarMas} className="boton-cargar">
+          <button type="button" onClick={()=> this.cargarMas()} className="boton-cargar">
             Cargar más
           </button>
         </div>
 
-        <Link to="/peliculas/populares" className="link-ver-todas">
-          Ver todas
-        </Link>
 
         <Footer />
       </React.Fragment>

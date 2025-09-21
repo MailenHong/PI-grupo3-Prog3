@@ -51,7 +51,7 @@ class Home extends Component {
                 ))}
               </div>
             )}
-        <Link to='/peliculas/populares'> Ver todas</Link>
+        <Link to='/peliculas/populares' className="verTodas"> Ver todas</Link>
 
         <h2> Top rated Series! </h2>
         {
@@ -66,7 +66,9 @@ class Home extends Component {
                 ))}
               </div>
             )}
-        <Link to='/series/toprated'> Ver todas</Link>
+            <div>
+        <Link to='/series/toprated' className="verTodas"> Ver todas</Link>
+        </div>
         <Footer />
       </React.Fragment>
     )
