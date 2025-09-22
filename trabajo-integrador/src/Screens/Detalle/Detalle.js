@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Header from '../../Components/Header/Header';
+import Footer from '../../Components/Footer/Footer';
 import './Detalle.css'
 
 
@@ -85,6 +87,7 @@ class Detalle extends Component {
         }
         return (
             <React.Fragment>
+                <Header/>
                 <h2 className="alert alert-primary">{this.state.data.title || this.state.data.name}</h2>
                 <section className="cards detalle">
                     <img
@@ -111,9 +114,7 @@ class Detalle extends Component {
                 </section>
 
 
-
-
-
+                    <Footer/>
             </React.Fragment>
 
         )
