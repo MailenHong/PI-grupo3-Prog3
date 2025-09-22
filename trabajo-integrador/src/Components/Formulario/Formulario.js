@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import "./Formulario.css"
 
 class Formulario extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class Formulario extends Component {
 
   render() {
     return (
-      <form onSubmit={this.controlarForm}>
+      <form className="search-form" onSubmit={this.controlarForm}>
         <input
           type="text"
           placeholder="Buscar…"
@@ -33,7 +34,7 @@ class Formulario extends Component {
           name="searchData"
           className="search"
         />
-
+        <div className='pelse'>
         <label>
           <input
             type="radio"
@@ -55,7 +56,7 @@ class Formulario extends Component {
           />
           Series
         </label>
-
+      </div>
         <button type="submit" className="boton">Buscar</button>
       </form>
     );
