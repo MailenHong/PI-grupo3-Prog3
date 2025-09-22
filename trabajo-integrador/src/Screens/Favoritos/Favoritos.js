@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Card from '../../Components/Card/Card';
+import Header from '../../Components/Header/Header'
 
 class Favoritas extends Component {
     constructor(props) {
@@ -47,6 +48,7 @@ class Favoritas extends Component {
     render() {
         return (
             <React.Fragment>
+                <Header></Header>
                 <h2> Peliculas favoritas </h2>
                 {
                     <div className="top-data">
