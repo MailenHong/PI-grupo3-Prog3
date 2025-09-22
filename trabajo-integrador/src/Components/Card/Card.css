@@ -5,7 +5,7 @@
 
 
 .data-detail {
-    flex: 0 0 25%;   /* ocupa exactamente el 25% del ancho */
+    flex: 0 0 25%;
     box-sizing: border-box;
     padding: 15px;
     background: #fff;
@@ -25,13 +25,11 @@
     object-fit: cover;    
 }
 
-
-
-
 .data-detail p {
     margin: 5px 0;
     font-size: 15px;
     color: #333;
+    
 }
 
 
@@ -40,7 +38,8 @@
 .data-detail a {
     color: blue;
     font-weight: bold;
-    margin-top: auto;      
+    margin-top: auto;   
+       
 }
 
 
@@ -63,9 +62,6 @@
 }
 
 
-
-
-/* efecto hover */
 .data-detail:hover {
     box-shadow: 0rem 0rem 10px 5px rgba(58, 59, 69, 0.25);
 }

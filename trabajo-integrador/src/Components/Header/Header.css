@@ -7,13 +7,17 @@
     justify-content: space-around;
 }
 
-
+h1{
+  font-family: emoji;
+  margin-left: 10px;
+}
 
 
 .nav a{
     color: #444;
     text-decoration: none;
     font-size: 20px;
+    font-family: system-ui;
 }
 .nav a:hover{
     font-weight: bold;

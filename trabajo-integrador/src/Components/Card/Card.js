@@ -80,7 +80,7 @@ class Card extends Component {
         const tipo = this.props.categoria
         return (
             <div>
-                <div>
+                <div className='cajaEnColumna'>
                     <p>{this.props.data.title || this.props.data.name}</p>
                     <img src={`https://image.tmdb.org/t/p/w342${this.props.data.poster_path}`}
                     alt={this.props.data.title || this.props.data.name} />
@@ -88,7 +88,7 @@ class Card extends Component {
                     <button onClick = {() => this.switchDescripcion()}>
                         {this.state.mensajeBoton}
                     </button>
-                    {this.state.mostrarDescripcion ? <p> {this.props.data.overview} </p> : ''}
+                    {this.state.mostrarDescripcion ? <p className='descripcion'> {this.props.data.overview} </p> : ''}
                     <Link to = {`/detalle/${tipo}/${this.props.data.id}`}> Ir al detalle </Link>
                     <button onClick = {() => this.switchFavorito()}>
                         {this.state.mensajeFav}
