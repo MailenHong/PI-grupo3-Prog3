@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Card from '../../Components/Card/Card';
 import Header from '../../Components/Header/Header'
 import Footer from '../../Components/Footer/Footer';
+import './Favoritos'
 
 class Favoritas extends Component {
     constructor(props) {
@@ -50,7 +51,7 @@ class Favoritas extends Component {
         return (
             <React.Fragment>
                 <Header/>
-                <h2> Peliculas favoritas </h2>
+                <h2 className="peliculasTitulo"> Peliculas favoritas </h2>
                 {
                     <div className="top-data">
                         {this.state.movies.map(serie => (
@@ -61,7 +62,7 @@ class Favoritas extends Component {
                     </div>
                 }
 
-                <h2> Series favoritas </h2>
+                <h2 className="seriesTitulo">Series favoritas </h2>
                 {
                     <div className="top-data">
                         {this.state.series.map(serie => (
