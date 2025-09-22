@@ -23,8 +23,9 @@ function App() {
         <Route path = '/series/:tipo' component = {Series} exact = {true}/>
         <Route path = '/series' component = {Series} exact = {true}/>
         <Route path = '/favoritas' component= {Favoritas} exact = {true}/>
-        <Route path = '' component= {NotFound}/>
         <Route path = '/buscar/:tipo/:busqueda' component= {Buscador} exact = {true}/>
+        <Route path = '' component= {NotFound}/>
+
 
       </Switch>
     </React.Fragment>

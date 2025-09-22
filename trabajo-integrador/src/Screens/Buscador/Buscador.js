@@ -13,19 +13,14 @@ class Buscador extends Component {
   componentDidMount() {
     const params = this.props.match.params;
     let tipo = params.tipo;
-    let busqueda = params.busqueda;
-    if (!busqueda) {
-      busqueda =''
-    }
+    let busqueda = params.busqueda || '';
 
-    fetch (`https://api.themoviedb.org/3/search/${tipo}?api_key=TU_API_KEY&query=${busqueda}`)
-      .then(function(res) { return res.json(); })
+    fetch(`https://api.themoviedb.org/3/search/${tipo}?api_key=TU_API_KEY&query=${busqueda}`)
+      .then((res) => res.json())
       .then((data) => {
         let lista = [];
-        if (data) {
-          if (data.results) {
-            lista = data.results;
-          }
+        if (data && data.results) {
+          lista = data.results;
         }
         this.setState({ resultados: lista, cargando: false });
       })
@@ -37,10 +32,11 @@ class Buscador extends Component {
   render() {
     const tipo = this.props.match.params.tipo;
 
-    if (this.state.cargando === true) {
+    if (this.state.cargando) {
       return (
         <main className="container">
           <h1>UdeSA Movies</h1>
+          <p>Cargando...</p>
         </main>
       );
     }
@@ -49,7 +45,7 @@ class Buscador extends Component {
       return (
         <main className="container">
           <h1>UdeSA Movies</h1>
-          <p>No hay resultados.</p>
+          <p>No hay resultados....</p>
         </main>
       );
     }
@@ -57,9 +53,9 @@ class Buscador extends Component {
     return (
       <main className="container">
         <h1>UdeSA Movies</h1>
-        {()=> this.state.resultados.map(function(item) {
-          return <Card key={item.id} data={item} categoria={tipo} />;
-        })}
+        {this.state.resultados.map((item) => (
+          <Card key={item.id} data={item} categoria={tipo} />
+        ))}
       </main>
     );
   }

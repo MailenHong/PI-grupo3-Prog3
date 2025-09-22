@@ -32,7 +32,7 @@ this.setState({
       .then(res => res.json())
       .then(data => {
         this.setState({
-          seriesPopulares: this.state.seriesPopulares.concat(data.results) ? data.results :[], 
+          seriesPopulares: this.state.seriesPopulares.concat(data.results), 
           page: this.state.page + 1
         });
       });
