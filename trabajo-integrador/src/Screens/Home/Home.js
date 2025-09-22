@@ -38,7 +38,7 @@ class Home extends Component {
     return (
       <React.Fragment>
         <Header />
-        <h2> Peliculas más populares </h2>
+        <h2 className="peliculasTitulo"> Peliculas más populares </h2>
         {
           (this.state.loadingPopulares == true)
             ? (<h3> Cargando... </h3>)
@@ -53,7 +53,7 @@ class Home extends Component {
             )}
         <Link to='/peliculas/populares' className="verTodas"> Ver todas</Link>
 
-        <h2> Top rated Series! </h2>
+        <h2 className= "seriesTitulo"> Top rated Series! </h2>
         {
           (this.state.loadingTop == true)
             ? (<h3> Cargando... </h3>)

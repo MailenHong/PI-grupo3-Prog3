@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Card from '../../Components/Card/Card';
+import Header from '../../Components/Header/Header';
+import Footer from '../../Components/Footer/Footer';
+import './Buscador.css'
 
 class Buscador extends Component {
   constructor(props) {
@@ -51,13 +54,22 @@ class Buscador extends Component {
     }
 
     return (
+      <React.Fragment>
+        <Header/>
       <main className="container">
         <h1>UdeSA Movies</h1>
+        <div className='top-data'>
         {this.state.resultados.map((item) => (
+          <div className='data-detail'>
           <Card key={item.id} data={item} categoria={tipo} />
+          </div>
         ))}
+        </div>
       </main>
+      <Footer/>
+      </React.Fragment>
     );
+    
   }
 }
 

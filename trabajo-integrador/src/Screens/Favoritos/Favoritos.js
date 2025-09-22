@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Card from '../../Components/Card/Card';
 import Header from '../../Components/Header/Header'
+import Footer from '../../Components/Footer/Footer';
+import './Favoritos'
 
 class Favoritas extends Component {
     constructor(props) {
@@ -80,6 +82,7 @@ class Favoritas extends Component {
 
                     :<p>Sin series favoritas</p>
                 }
+                <Footer/>
             </React.Fragment>
         )
 
