@@ -3,6 +3,7 @@ import Card from '../../Components/Card/Card';
 import { Link } from 'react-router-dom';
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
+import './Series.css'
 
 class Series extends Component {
   constructor(props){
