@@ -54,8 +54,9 @@ this.setState({
     return (
       <React.Fragment>
         <Header />
+        <main className= "container">
 
-        <h2> Series mejor valoradas </h2>
+        <h2 className='alert-warning'> Todas las series </h2>
 
         <form onSubmit={(e)=> e.preventDefault()} className="formulario-busqueda">
           <input
@@ -75,7 +76,9 @@ this.setState({
               <p>No hay resultados{valorInput ? ` para “${valorInput}”` : ''}.</p>
             ) : (
               lista.map(serie => (
+                <div className= "data-detail">
                 <Card key={serie.id} data={serie} categoria="tv" />
+                </div>
               ))
             )}
           </section>
@@ -86,6 +89,7 @@ this.setState({
             Cargar más
           </button>
         </div>
+        </main>
 
         <Footer />
       </React.Fragment>
