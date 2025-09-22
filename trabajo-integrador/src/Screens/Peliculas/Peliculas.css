@@ -1,8 +1,35 @@
 
+
 .lista-peliculas {
    display: flex;
    flex-wrap: wrap;
    gap: 16px;
+}
+
+.alert-warning{
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  border-radius: 4px;
+  padding: .75rem 1.25rem;
+  margin: 1rem 0;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+.formulario-busqueda{
+  margin: 1rem 0;
+}
+.campo-busqueda{
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: .5rem .75rem;
+  font-size: 1rem;
+}
+.campo-busqueda:focus{
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
 }
 
 

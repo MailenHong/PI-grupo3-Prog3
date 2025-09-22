@@ -59,7 +59,7 @@ class Peliculas extends Component {
       <React.Fragment>
         <Header />
 
-        <h2> Peliculas más populares </h2>
+        <h2 className="alert-warning"> Peliculas más populares </h2>
         <form onSubmit={(e)=> e.preventDefault()} className="formulario-busqueda">
           <input
             type="text"
@@ -78,8 +78,9 @@ class Peliculas extends Component {
               <p> No hay resultados{valorInput ? ` para “${valorInput}”` : ''}.</p>
             ) : (
               lista.map(Peliculas => (
+                <div className="data-detail">
                 <Card key={Peliculas.id} data={Peliculas} categoria="movie" />
-              ))
+             </div> )) 
             )}
           </section>
         )}
