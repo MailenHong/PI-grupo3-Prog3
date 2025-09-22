@@ -57,7 +57,7 @@ class Favoritas extends Component {
         return (
             <React.Fragment>
                 <Header></Header>
-                <h2> Peliculas favoritas </h2>
+                <h2 className="peliculasTitulo"> Peliculas favoritas </h2>
                 { this.state.movies.length > 0 ? 
                 <div className="top-data">
                         {this.state.movies.map(serie => (
@@ -70,7 +70,7 @@ class Favoritas extends Component {
                     : <p>Sin pelis favoritas</p>
                 }
 
-                <h2> Series favoritas </h2>
+                <h2 className= "seriesTitulo"> Series favoritas </h2>
                 { this.state.series.length > 0 ? 
                     <div className="top-data">
                         {this.state.series.map(serie => (
