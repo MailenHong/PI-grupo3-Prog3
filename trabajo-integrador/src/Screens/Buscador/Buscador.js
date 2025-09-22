@@ -15,7 +15,7 @@ class Buscador extends Component {
     let tipo = params.tipo;
     let busqueda = params.busqueda || '';
 
-    fetch(`https://api.themoviedb.org/3/search/${tipo}?api_key=TU_API_KEY&query=${busqueda}`)
+    fetch(`https://api.themoviedb.org/3/search/${tipo}?api_key=f9fc64e9649ab6801db9ea49129b2146&query=${busqueda}`)
       .then((res) => res.json())
       .then((data) => {
         let lista = [];
