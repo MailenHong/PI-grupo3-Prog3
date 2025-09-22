@@ -3,6 +3,7 @@ import Card from '../../Components/Card/Card';
 import { Link } from 'react-router-dom';
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
+import './Series.css'
 
 class Series extends Component {
   constructor(props){
@@ -53,8 +54,9 @@ this.setState({
     return (
       <React.Fragment>
         <Header />
+        <main className= "container">
 
-        <h2> Series mejor valoradas </h2>
+        <h2 className='alert-warning'> Todas las series </h2>
 
         <form onSubmit={(e)=> e.preventDefault()} className="formulario-busqueda">
           <input
@@ -74,7 +76,9 @@ this.setState({
               <p>No hay resultados{valorInput ? ` para “${valorInput}”` : ''}.</p>
             ) : (
               lista.map(serie => (
+                <div className= "data-detail">
                 <Card key={serie.id} data={serie} categoria="tv" />
+                </div>
               ))
             )}
           </section>
@@ -85,6 +89,7 @@ this.setState({
             Cargar más
           </button>
         </div>
+        </main>
 
         <Footer />
       </React.Fragment>
