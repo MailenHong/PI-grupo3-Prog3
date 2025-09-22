@@ -17,7 +17,6 @@ nav {
 }
 .search-form, .filter-form {
     padding: .5rem 1rem;
-    display: grid;
     grid-template-columns: 4fr 1fr;
     column-gap: 5px;
 }

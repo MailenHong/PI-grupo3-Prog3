@@ -1,9 +1,8 @@
 .search-form {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    justify-content: flex-end;   
-    padding: .25rem 0;
+  display: flex;
+  flex-direction: row;
+      align-items: center;
+
   }
   
   
@@ -49,13 +48,13 @@
   .search-form .boton {
     height: 30px;
     width: 100px;
-    border: 1px solid #ebe525;
-    background: #f9ebc3;
-    color: #000000;
+    border: 1px solid #555;;
+    background-color: #555;
+    color: white;
     border-radius: 10px;
     cursor: pointer;
-    margin-left: 500px;
-
+    border-radius: 25px;
+    font-family: monospace;
   }
   .search-form .boton:hover { box-shadow: 0 4px 14px rgba(37,99,235,.25); }
   .search-form .boton:active { transform: translateY(1px); }
